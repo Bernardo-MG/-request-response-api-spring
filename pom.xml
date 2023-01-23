@@ -182,7 +182,7 @@
       <mockito.version>4.9.0</mockito.version>
       <log4j.version>2.19.0</log4j.version>
       <lombok.version>1.18.24</lombok.version>
-      <slf4j.version>2.0.3</slf4j.version>
+      <slf4j.version>1.7.36</slf4j.version>
       <spring.version>5.3.23</spring.version>
       <spring.boot.version>2.7.8</spring.boot.version>
       <spring.data.version>2021.2.5</spring.data.version>
@@ -289,7 +289,7 @@
       <dependency>
          <!-- Log4j SLF4J Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
-         <artifactId>log4j-slf4j-impl</artifactId>
+         <artifactId>log4j-slf4j2-impl</artifactId>
          <version>${log4j.version}</version>
          <scope>provided</scope>
       </dependency>
@@ -354,14 +354,15 @@
                <groupId>org.junit.vintage</groupId>
                <artifactId>junit-vintage-engine</artifactId>
             </exclusion>
+            <exclusion>
+               <groupId>org.apache.logging.log4j</groupId>
+               <artifactId>log4j-to-slf4j</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+            </exclusion>
          </exclusions>
-      </dependency>
-      <dependency>
-         <!-- Spring Boot Starter: log4j -->
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-log4j2</artifactId>
-         <version>${spring.boot.version}</version>
-         <scope>test</scope>
       </dependency>
    </dependencies>
 
